@@ -19,6 +19,7 @@ elif risktype == "Launch":
     totalDue = 0
   else:
     totalDue = st.number_input("Enter How Many Days Before Launch Payment Is Due:",0,365,step = 1,key='launchtotaldue')
+  st.divider()
   endorsementsCheck = st.toggle("Select If There Are Endorsements On This Spacecraft",False,key='endorsementcheck')
   if endorsementsCheck:
     endorsementpremium = st.number_input("Enter the Premium Amount Associated with the Endorsement:",-1000000.00,1000000.00,value = 0.00,step = .01,key='endorsementpremium')
@@ -42,7 +43,7 @@ elif risktype == "In-Orbit":
       if equalinstallments:
         exec(f'percent{installment} = st.date_input("Select Percent Allocated to Installment {installment}",key="percent{installment}")')
     
-      
+  st.divider()
   endorsementsCheck = st.toggle("Select Checkbox If There Are Endorsements On This Spacecraft",False,key='endorsementcheck')
   if endorsementsCheck:
     endorsementpremium = st.number_input("Enter the Premium Amount Associated with the Endorsement:",-1000000.00,1000000.00,value = 0.00,step = .01,key='endorsementpremium')
