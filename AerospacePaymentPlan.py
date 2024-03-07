@@ -36,6 +36,7 @@ elif risktype == "In-Orbit":
   orbitInstallments = st.number_input("Enter the Number of Installments There Will Be To Full Pay:",1,12,step = 1,key='isntallments')
   if orbitInstallments == 1:
     date1 = st.date_input("Select Date the Payment is Due:",key='date1')
+    percent1 = 100
   else:
     equalinstallments = st.toggle("Select if Installments are NOT Equally Distributed",key='orbitequalinstal')
     for installment in range(orbitInstallments):
@@ -51,7 +52,16 @@ elif risktype == "In-Orbit":
   else:
     pass
   submitorbit = st.button("Submit",key='submitorbit')
-  
-    
+  if submitorbit:
+    result = f"O{orbitInstallments}: Payment 1: {date1.strftime('%m/%d/%Y')} @ {(percent1/100):.2%}"
+    for installment in range(orbitInstallments):
+      if installment = 0:
+        pass
+      else:
+        date = exec(f"date{installment+1}").strftime('%m/%d/%Y')
+        percent = exec(f"date{installment+1}")/100
+        result += f', Payment {installment+1}: {date} @ {percent:.2%}
+    st.divider()
+    st.header(result)
     
   
