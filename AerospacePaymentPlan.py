@@ -28,6 +28,6 @@ if submitlaunch == True:
   if depositPercent == 0:
     result += f"1{endorsementCheck.map({True:'E:',False:'N:'})} 100% Due {totalDue} Days Before Launch"
   else:
-    result += f"2{endorsementCheck.map({True:'E:',False:'N:'})} {(depositPercent/100).2%} Due on {depositdue.strftime("%m/%d/%Y")}. {(1-(depositPercent/100)).2%} Due {remainingDue} Days Before Launch"
+    result += f"2{endorsementCheck.map({True:'E:',False:'N:'})} {(depositPercent/100):.2%} Due on {depositdue.strftime("%m/%d/%Y")}. {(1-(depositPercent/100)):.2%} Due {remainingDue} Days Before Launch"
   
   
