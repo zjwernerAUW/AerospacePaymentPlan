@@ -21,7 +21,7 @@ if risktype == "Launch":
     if endorsementsCheck == True:
       endorsementpremium = st.number_input("Enter the Premium Amount Associated with the Endorsement:",-1000000,1000000,step = .01,key='endorsementpremium')
       endorsementduedate = st.date_input("Enter the Date Payment for the Endorsement is Due:",key='endorsementduedate')
-  submitlaunch = st.form_submit_button("Generate")
+  submitlaunch = st.form_submit_button()
   
   if submitlaunch == True:
     if depositPercent == 0:
