@@ -1,10 +1,10 @@
-import streamlit as st
+ectimport streamlit as st
 import numpy as np
 
 
 st.title("Aerospace Payment Plan Text Generator")
 
-risktype = st.multiselect("Select The Risk Type:",["*Select*","Launch","In-Orbit"],key="risktype")
+risktype = st.selectbox("Select The Risk Type:",["*Select*","Launch","In-Orbit"],key="risktype")
 
 result = ""
 
