@@ -32,7 +32,7 @@ elif risktype == "Launch":
     st.divider()
     st.header(result)
 elif risktype == "In-Orbit":
-  orbitInstallments = st.number_input("Enter the Number of Installments There Will Be To Full Pay:",0,12,step = 1,key='isntallments')
+  orbitInstallments = st.number_input("Enter the Number of Installments There Will Be To Full Pay:",1,12,step = 1,key='isntallments')
   if orbitInstallments == 1:
     date1 = st.date_input("Select Date the Payment is Due:",key='date1')
   else:
