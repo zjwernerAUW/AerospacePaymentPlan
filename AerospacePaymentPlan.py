@@ -39,9 +39,9 @@ elif risktype == "In-Orbit":
   else:
     equalinstallments = st.toggle("Select if Installments are Equally Distributed",key='orbitequalinstal')
     for installment in range(orbitInstallments):
-      exec(f'date{installment} = st.date_input("Select Date for Installment {installment}",key="date{installment}")')
+      exec(f'date{installment+1} = st.date_input("Select Date for Installment {installment+1}",key="date{installment+1}")')
       if equalinstallments:
-        exec(f'percent{installment} = st.date_input("Select Percent Allocated to Installment {installment}",key="percent{installment}")')
+        exec(f'percent{installment+1} = st.date_input("Select Percent Allocated to Installment {installment+1}",key="percent{installment+1}")')
     
   st.divider()
   endorsementsCheck = st.toggle("Select Checkbox If There Are Endorsements On This Spacecraft",False,key='endorsementcheck')
