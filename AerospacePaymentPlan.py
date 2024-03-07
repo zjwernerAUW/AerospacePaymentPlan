@@ -31,6 +31,7 @@ if risktype == "Launch":
       result = f"L1{endorsementMap[endorsementsCheck]} 100% Due {totalDue} Days Before Launch"
     else:
       result = f"L2{endorsementMap[endorsementsCheck]} {(depositPercent/100):.2%} Due on {depositdue.strftime('%m/%d/%Y')}. {(1-(depositPercent/100)):.2%} Due {remainingDue} Days Before Launch"
-    st.text(result)
+    st.divider()
+    st.header(result)
   
   
