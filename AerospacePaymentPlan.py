@@ -10,7 +10,7 @@ result = ""
 endorsementMap = {True:'E:',False:'N:'}
 
 if risktype == "Launch":
-  with st.form(key="launchform"):
+  with st.container(key="launchform"):
     depositPercent = st.number_input("Enter Deposit Percent: (If there is no deposit enter 0)",0.0,100.0, step=0.1,key="launchdeposit")
     if depositPercent != 0:
       depositdue = st.date_input("Select Deposit Due Date",key="launchdepositdue")
@@ -19,13 +19,13 @@ if risktype == "Launch":
     else:
       totalDue = st.number_input("Enter How Many Days Before Launch Payment Is Due:",0,365,step = 1,key='launchtotaldue')
     endorsementsCheck = st.toggle("Select Checkbox If There Are Endorsements On This Spacecraft",False,key='endorsementcheck')
-    submitlaunch = st.form_submit_button()
+    submitlaunch = st.button('submitlaunch')
   if submitlaunch:
     if endorsementsCheck:
-      with st.form(key='endorsement'):
+      with st.container(key='endorsement'):
         endorsementpremium = st.number_input("Enter the Premium Amount Associated with the Endorsement:",-1000000.00,1000000.00,value = 0.00,step = .01,key='endorsementpremium')
         endorsementduedate = st.date_input("Enter the Date Payment for the Endorsement is Due:",key='endorsementduedate')
-        submitendorsement = st.form_submit_button()
+        submitendorsement = st.button("Submit",key='submitendorsement')
     if submitendorsement == True:
       if depositPercent == 0:
         result = f"L1{endorsementMap[endorsementsCheck]} 100% Due {totalDue} Days Before Launch"
