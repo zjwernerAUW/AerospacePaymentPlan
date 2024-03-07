@@ -22,12 +22,12 @@ if risktype == "Launch":
       endorsementpremium = st.number_input("Enter the Premium Amount Associated with the Endorsement:",-1000000,1000000,step = .01,key='endorsementpremium')
       endorsementduedate = st.date_input("Enter the Date Payment for the Endorsement is Due:",key='endorsementduedate')
   submitlaunch = st.form_submit_button("Generate",key="generatelaunch")
-
-if submitlaunch == True:
-  result = "L"
-  if depositPercent == 0:
-    result += f"1{endorsementCheck.map({True:'E:',False:'N:'})} 100% Due {totalDue} Days Before Launch"
-  else:
-    result += f"2{endorsementCheck.map({True:'E:',False:'N:'})} {(depositPercent/100):.2%} Due on {depositdue.strftime('%m/%d/%Y')}. {(1-(depositPercent/100)):.2%} Due {remainingDue} Days Before Launch"
+  
+  if submitlaunch == True:
+    if depositPercent == 0:
+      result = f"L1{endorsementCheck.map({True:'E:',False:'N:'})} 100% Due {totalDue} Days Before Launch"
+    else:
+      result = f"L2{endorsementCheck.map({True:'E:',False:'N:'})} {(depositPercent/100):.2%} Due on {depositdue.strftime('%m/%d/%Y')}. {(1-(depositPercent/100)):.2%} Due {remainingDue} Days Before Launch"
+    st.text(result)
   
   
