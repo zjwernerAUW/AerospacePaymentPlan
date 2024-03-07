@@ -11,7 +11,7 @@ result = ""
 if risktype == "Launch":
   with st.form(key="launchform"):
     despositPercent = st.number_input("Enter Deposit Percent: (If there is no deposit enter 0",0,100, step=0.1,key="launchdeposit")
-    if depositPercent <> 0:
+    if depositPercent != 0:
       depositdue = st.date_input("Select Deposit Due Date",key="launchdepositdue")
       remainingDue = st.number_input("Enter How Many Days Before Launch Remaining Payment Is Due:",0,365,step = 1,key="launchremainingdue")
       totalDue = 0
