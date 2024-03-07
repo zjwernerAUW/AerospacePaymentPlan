@@ -9,7 +9,9 @@ risktype = st.selectbox("Select The Risk Type:",["*Select*","Launch","In-Orbit"]
 result = ""
 endorsementMap = {True:'E:',False:'N:'}
 
-if risktype == "Launch":
+if risktype == "*Select*":
+  st.warning("Select a risk type")
+elif risktype == "Launch":
   depositPercent = st.number_input("Enter Deposit Percent: (If there is no deposit enter 0)",0.0,100.0, step=0.1,key="launchdeposit")
   if depositPercent != 0:
     depositdue = st.date_input("Select Deposit Due Date",key="launchdepositdue")
