@@ -29,7 +29,7 @@ elif risktype == "Launch":
     if depositPercent == 0:
       result = f"L1{endorsementMap[endorsementsCheck]} 100% Due {totalDue} Days Before Launch." + f"{f' END ${endorsementpremium:.2f} Due {endorsementduedate}' if endorsementsCheck else ''}"
     else:
-      result = f"L2{endorsementMap[endorsementsCheck]} {(depositPercent/100):.2%} Due on {depositdue.strftime('%m/%d/%Y')}. {(1-(depositPercent/100)):.2%} Due {remainingDue} Days Before Launch." + f"{f' END ${endorsementpremium:.2f} Due {endorsementduedate}' if endorsementsCheck else ''}"
+      result = f"L2{endorsementMap[endorsementsCheck]} {(depositPercent/100):.2%} Due on {depositdue.strftime('%m/%d/%Y')}. {(1-(depositPercent/100)):.2%} Due {remainingDue} Days Before Launch." + f"{f' END ${endorsementpremium:,.2f} Due {endorsementduedate}' if endorsementsCheck else ''}"
     st.divider()
     st.header(result)
 elif risktype == "In-Orbit":
@@ -64,7 +64,7 @@ elif risktype == "In-Orbit":
         exec(f"percent = percent{installment+1}")
         result += f", Payment {installment+1}: {date.strftime('%m/%d/%Y')} @ {percent/100:.2%}"
       if installment == orbitInstallments-1:
-        result += f"{f'. END ${endorsementpremium:.2f} Due {endorsementduedate}' if endorsementsCheck else '.'}"
+        result += f"{f'. END ${endorsementpremium:,.2f} Due {endorsementduedate}' if endorsementsCheck else '.'}"
     st.divider()
     st.header(result)
     
