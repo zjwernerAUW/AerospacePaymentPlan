@@ -51,9 +51,6 @@ elif risktype == "In-Orbit":
   else:
     pass
   submitorbit = st.button("Submit",key='submitorbit')
-
-if submitorbit:
-  pass
   
     
     
