@@ -24,9 +24,9 @@ if risktype == "Launch":
   submitlaunch = st.button("Submit",key='submitlaunch')
   if submitlaunch:
     if depositPercent == 0:
-      result = f"L1{endorsementMap[endorsementsCheck]} 100% Due {totalDue} Days Before Launch.{f' END ${endorsementpremium:.2f} Due {endorsementduedate}' if endorsementsCheck else ''}"
+      result = f"L1{endorsementMap[endorsementsCheck]} 100% Due {totalDue} Days Before Launch." + f"{' END ${endorsementpremium:.2f} Due {endorsementduedate}' if endorsementsCheck else ''}"
     else:
-      result = f"L2{endorsementMap[endorsementsCheck]} {(depositPercent/100):.2%} Due on {depositdue.strftime('%m/%d/%Y')}. {(1-(depositPercent/100)):.2f} Due {remainingDue} Days Before Launch.{f' END ${endorsementpremium:.2$} Due {endorsementduedate}' if endorsementsCheck else ''}"
+      result = f"L2{endorsementMap[endorsementsCheck]} {(depositPercent/100):.2%} Due on {depositdue.strftime('%m/%d/%Y')}. {(1-(depositPercent/100)):.2f} Due {remainingDue} Days Before Launch." + f"{' END ${endorsementpremium:.2f} Due {endorsementduedate}' if endorsementsCheck else ''}"
     st.divider()
     st.header(result)
     
