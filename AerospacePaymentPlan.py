@@ -8,7 +8,6 @@ risktype = st.selectbox("Select The Risk Type:",["*Select*","Launch","In-Orbit"]
 
 result = ""
 endorsementMap = {True:'E:',False:'N:'}
-endorsementsCheck = False
 
 if risktype == "Launch":
   with st.form(key="launchform"):
@@ -21,7 +20,7 @@ if risktype == "Launch":
       totalDue = st.number_input("Enter How Many Days Before Launch Payment Is Due:",0,365,step = 1,key='launchtotaldue')
     endorsementsCheck = st.checkbox("Select Checkbox If There Are Endorsements On This Spacecraft",False,key='endorsementcheck')
     st.write(endorsementsCheck)
-    if endorsementsCheck == True:
+    if endorsementsCheck:
       endorsementpremium = st.number_input("Enter the Premium Amount Associated with the Endorsement:",-1000000.00,1000000.00,step = .01,key='endorsementpremium')
       endorsementduedate = st.date_input("Enter the Date Payment for the Endorsement is Due:",key='endorsementduedate')
     else:
