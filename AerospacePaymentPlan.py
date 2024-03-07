@@ -7,6 +7,7 @@ st.title("Aerospace Payment Plan Text Generator")
 risktype = st.selectbox("Select The Risk Type:",["*Select*","Launch","In-Orbit"],key="risktype")
 
 result = ""
+endorsementMap = {True:'E:',False:'N:'}
 
 if risktype == "Launch":
   with st.form(key="launchform"):
@@ -27,9 +28,9 @@ if risktype == "Launch":
   
   if submitlaunch == True:
     if depositPercent == 0:
-      result = f"L1{{True:'E:',False:'N:'}[endorsementsCheck]} 100% Due {totalDue} Days Before Launch"
+      result = f"L1{endorsementMap[endorsementsCheck]} 100% Due {totalDue} Days Before Launch"
     else:
-      result = f"L2{{True:'E:',False:'N:'}[endorsementsCheck]} {(depositPercent/100):.2%} Due on {depositdue.strftime('%m/%d/%Y')}. {(1-(depositPercent/100)):.2%} Due {remainingDue} Days Before Launch"
+      result = f"L2{endorsementMap[endorsementsCheck]} {(depositPercent/100):.2%} Due on {depositdue.strftime('%m/%d/%Y')}. {(1-(depositPercent/100)):.2%} Due {remainingDue} Days Before Launch"
     st.text(result)
   
   
