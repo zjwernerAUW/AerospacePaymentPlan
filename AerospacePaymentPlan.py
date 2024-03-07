@@ -55,7 +55,7 @@ elif risktype == "In-Orbit":
   if submitorbit:
     result = f"O{orbitInstallments}: Payment 1: {date1.strftime('%m/%d/%Y')} @ {(percent1/100):.2%}"
     for installment in range(orbitInstallments):
-      if installment = 0:
+      if installment == 0:
         pass
       else:
         date = exec(f"date{installment+1}").strftime('%m/%d/%Y')
