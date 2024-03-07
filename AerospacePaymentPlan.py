@@ -8,7 +8,6 @@ risktype = st.selectbox("Select The Risk Type:",["*Select*","Launch","In-Orbit"]
 
 result = ""
 endorsementMap = {True:'E:',False:'N:'}
-global endorsementsCheck
 
 if risktype == "Launch":
   with st.form(key="launchform"):
@@ -20,20 +19,19 @@ if risktype == "Launch":
     else:
       totalDue = st.number_input("Enter How Many Days Before Launch Payment Is Due:",0,365,step = 1,key='launchtotaldue')
     endorsementsCheck = st.toggle("Select Checkbox If There Are Endorsements On This Spacecraft",False,key='endorsementcheck')
-    st.write(endorsementsCheck)
-    if endorsementsCheck:
-      endorsementpremium = st.number_input("Enter the Premium Amount Associated with the Endorsement:",-1000000.00,1000000.00,step = .01,key='endorsementpremium')
-      endorsementduedate = st.date_input("Enter the Date Payment for the Endorsement is Due:",key='endorsementduedate')
-    else:
-      pass
     submitlaunch = st.form_submit_button()
-  
-  if submitlaunch == True:
-    if depositPercent == 0:
-      result = f"L1{endorsementMap[endorsementsCheck]} 100% Due {totalDue} Days Before Launch"
-    else:
-      result = f"L2{endorsementMap[endorsementsCheck]} {(depositPercent/100):.2%} Due on {depositdue.strftime('%m/%d/%Y')}. {(1-(depositPercent/100)):.2%} Due {remainingDue} Days Before Launch"
-    st.divider()
-    st.header(result)
+  if submitlaunch:
+    with st.form(key='endorsement'):
+      if EndorsementsCheck:
+        endorsementpremium = st.number_input("Enter the Premium Amount Associated with the Endorsement:",-1000000.00,1000000.00,step = .01,key='endorsementpremium')
+        endorsementduedate = st.date_input("Enter the Date Payment for the Endorsement is Due:",key='endorsementduedate')
+      submitendorsement = st.form_submit_button()
+    if submitendorsement:
+      if depositPercent == 0:
+        result = f"L1{endorsementMap[endorsementsCheck]} 100% Due {totalDue} Days Before Launch"
+      else:
+        result = f"L2{endorsementMap[endorsementsCheck]} {(depositPercent/100):.2%} Due on {depositdue.strftime('%m/%d/%Y')}. {(1-(depositPercent/100)):.2%} Due {remainingDue} Days Before Launch"
+      st.divider()
+      st.header(result)
   
   
