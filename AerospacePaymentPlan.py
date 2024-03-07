@@ -18,7 +18,7 @@ if risktype == "Launch":
     else:
       totalDue = st.number_input("Enter How Many Days Before Launch Payment Is Due:",0,365,step = 1,key='launchtotaldue')
     endorsementsCheck = st.checkbox("Select Checkbox If There Are Endorsements On This Spacecraft",False,key='endorsementcheck')
-    if endorsementsCheck = True:
+    if endorsementsCheck == True:
       endorsementpremium = st.number_input("Enter the Premium Amount Associated with the Endorsement:",-1000000,1000000,step = .01,key='endorsementpremium')
       endorsementduedate = st.date_input("Enter the Date Payment for the Endorsement is Due:",key='endorsementduedate')
   submitlaunch = st.form_submit_button("Generate",key="generatelaunch")
