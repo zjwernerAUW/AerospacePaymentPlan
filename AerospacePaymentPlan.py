@@ -14,7 +14,7 @@ if risktype == "*Select*":
 elif risktype == "Launch":
   depositPercent = st.number_input("Enter Deposit Percent: (If there is no deposit enter 0)",0.0,100.0, step=0.1,key="launchdeposit")
   if depositPercent != 0:
-    depositdue = st.date_input("Select Deposit Due Date",key="launchdepositdue")
+    depositdue = st.date_input("Select Deposit Due Date",key="launchdepositdue",format = "MM/DD/YYYY")
     remainingDue = st.number_input("Enter How Many Days Before Launch Remaining Payment Is Due:",0,365,step = 1,key="launchremainingdue")
     totalDue = 0
   else:
@@ -23,7 +23,7 @@ elif risktype == "Launch":
   endorsementsCheck = st.toggle("Select If There Are Endorsements On This Spacecraft",False,key='endorsementcheck')
   if endorsementsCheck:
     endorsementpremium = st.number_input("Enter the Premium Amount Associated with the Endorsement:",-1000000.00,1000000.00,value = 0.00,step = .01,key='endorsementpremium')
-    endorsementduedate = st.date_input("Enter the Date Payment for the Endorsement is Due:",key='endorsementduedate').strftime('%m/%d/%Y')
+    endorsementduedate = st.date_input("Enter the Date Payment for the Endorsement is Due:",key='endorsementduedate',format = "MM/DD/YYYY").strftime('%m/%d/%Y')
   submitlaunch = st.button("Submit",key='submitlaunch')
   if submitlaunch:
     if depositPercent == 0:
@@ -35,12 +35,12 @@ elif risktype == "Launch":
 elif risktype == "In-Orbit":
   orbitInstallments = st.number_input("Enter the Number of Installments There Will Be To Full Pay:",1,12,step = 1,key='isntallments')
   if orbitInstallments == 1:
-    date1 = st.date_input("Select Date the Payment is Due:",key='date1')
+    date1 = st.date_input("Select Date the Payment is Due:",key='date1',format = "MM/DD/YYYY")
     percent1 = 100
   else:
     notequalinstallments = st.toggle("Select if Installments are NOT Equally Distributed",key='orbitequalinstal')
     for installment in range(orbitInstallments):
-      exec(f'date{installment+1} = st.date_input("Select Date for Installment {installment+1}",key="date{installment+1}")')
+      exec(f'date{installment+1} = st.date_input("Select Date for Installment {installment+1}",key="date{installment+1}",format = "MM/DD/YYYY")')
       if notequalinstallments:
         exec(f'percent{installment+1} = st.number_input("Select Percent Allocated to Installment {installment+1}",0,100,key="percent{installment+1}")')
       else:
@@ -50,7 +50,7 @@ elif risktype == "In-Orbit":
   endorsementsCheck = st.toggle("Select Checkbox If There Are Endorsements On This Spacecraft",False,key='endorsementcheck')
   if endorsementsCheck:
     endorsementpremium = st.number_input("Enter the Premium Amount Associated with the Endorsement:",-1000000.00,1000000.00,value = 0.00,step = .01,key='endorsementpremium')
-    endorsementduedate = st.date_input("Enter the Date Payment for the Endorsement is Due:",key='endorsementduedate').strftime('%m/%d/%Y')
+    endorsementduedate = st.date_input("Enter the Date Payment for the Endorsement is Due:",key='endorsementduedate',format = "MM/DD/YYYY").strftime('%m/%d/%Y')
   else:
     pass
   submitorbit = st.button("Submit",key='submitorbit')
