@@ -8,6 +8,7 @@ risktype = st.selectbox("Select The Risk Type:",["*Select*","Launch","In-Orbit"]
 
 result = ""
 endorsementMap = {True:'E:',False:'N:'}
+global endorsementsCheck
 
 if risktype == "Launch":
   with st.form(key="launchform"):
