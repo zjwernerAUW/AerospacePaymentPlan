@@ -55,7 +55,7 @@ elif risktype == "In-Orbit":
     pass
   submitorbit = st.button("Submit",key='submitorbit')
   if submitorbit:
-    result = f"O{orbitInstallments}{endorsementMap[endorsementsCheck]}: Payment 1: {date1.strftime('%m/%d/%Y')} @ {(percent1/100):.2%}"
+    result = f"O{orbitInstallments}{endorsementMap[endorsementsCheck]} Payment 1: {date1.strftime('%m/%d/%Y')} @ {(percent1/100):.2%}"
     for installment in range(orbitInstallments):
       if installment == 0:
         pass
