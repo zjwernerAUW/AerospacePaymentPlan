@@ -38,7 +38,7 @@ elif risktype == "In-Orbit":
     date1 = st.date_input("Select Date the Payment is Due:",key='date1')
   else:
     equalinstallments = st.toggle("Select if Installments are Equally Distributed",key='orbitequalinstal')
-    for intallment in range(orbitInstallments):
+    for installment in range(orbitInstallments):
       exec(f'date{installment} = st.date_input("Select Date for Installment {installment}",key="date{installment}")')
       if equalinstallments:
         exec(f'percent{installment} = st.date_input("Select Percent Allocated to Installment {installment}",key="percent{installment}")')
