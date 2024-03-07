@@ -48,6 +48,8 @@ elif risktype == "In-Orbit":
   if endorsementsCheck:
     endorsementpremium = st.number_input("Enter the Premium Amount Associated with the Endorsement:",-1000000.00,1000000.00,value = 0.00,step = .01,key='endorsementpremium')
     endorsementduedate = st.date_input("Enter the Date Payment for the Endorsement is Due:",key='endorsementduedate').strftime('%m/%d/%Y')
+  else:
+    pass
   submitorbit = st.button("Submit",key='submitorbit')
 
 if submitorbit:
