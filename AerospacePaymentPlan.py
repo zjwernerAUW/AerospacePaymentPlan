@@ -62,7 +62,7 @@ elif risktype == "In-Orbit":
       else:
         exec(f"date = date{installment+1}")
         exec(f"percent = percent{installment+1}")
-        result += f', Payment {installment+1}: {date.strftime('%m/%d/%Y')} @ {percent/100:.2%}'
+        result += f", Payment {installment+1}: {date.strftime('%m/%d/%Y')} @ {percent/100:.2%}"
     st.divider()
     st.header(result)
     
