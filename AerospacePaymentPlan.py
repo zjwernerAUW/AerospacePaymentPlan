@@ -56,16 +56,21 @@ elif risktype == "In-Orbit":
   submitorbit = st.button("Submit",key='submitorbit')
   if submitorbit:
     result = f"O{orbitInstallments}{endorsementMap[endorsementsCheck]} Payment 1: {date1.strftime('%m/%d/%Y')} @ {(percent1/100):.2%}"
+    sumofpercentages = percent1
     for installment in range(orbitInstallments):
       if installment == 0:
         pass
       else:
         exec(f"date = date{installment+1}")
         exec(f"percent = percent{installment+1}")
+        sumofpercentages += percent
         result += f", Payment {installment+1}: {date.strftime('%m/%d/%Y')} @ {percent/100:.2%}"
       if installment == orbitInstallments-1:
         result += f"{f'. END ${endorsementpremium:,.2f} Due {endorsementduedate}' if endorsementsCheck else '.'}"
-    st.divider()
-    st.header(result)
+    if sumofpercentages == 100:
+      st.divider()
+      st.header(result)
+    else:
+      st.error("Percentages Do Not Equal 100%")
     
   
