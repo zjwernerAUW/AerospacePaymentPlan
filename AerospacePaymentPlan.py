@@ -37,11 +37,11 @@ elif risktype == "In-Orbit":
   if orbitInstallments == 1:
     date1 = st.date_input("Select Date the Payment is Due:",key='date1')
   else:
-    equalinstallments = st.toggle("Select if Installments are Equally Distributed",key='orbitequalinstal')
+    equalinstallments = st.toggle("Select if Installments are NOT Equally Distributed",key='orbitequalinstal')
     for installment in range(orbitInstallments):
       exec(f'date{installment+1} = st.date_input("Select Date for Installment {installment+1}",key="date{installment+1}")')
       if equalinstallments:
-        exec(f'percent{installment+1} = st.date_input("Select Percent Allocated to Installment {installment+1}",key="percent{installment+1}")')
+        exec(f'percent{installment+1} = st.number_input("Select Percent Allocated to Installment {installment+1}",0,100,key="percent{installment+1}")')
     
   st.divider()
   endorsementsCheck = st.toggle("Select Checkbox If There Are Endorsements On This Spacecraft",False,key='endorsementcheck')
