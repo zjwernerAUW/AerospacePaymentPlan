@@ -45,7 +45,6 @@ elif risktype == "In-Orbit":
         exec(f'percent{installment+1} = st.number_input("Select Percent Allocated to Installment {installment+1}",0,100,key="percent{installment+1}")')
       else:
         exec(f'percent{installment+1} = {100/orbitInstallments}')
-        exec(f"st.write(percent{installment+1})")
     
   st.divider()
   endorsementsCheck = st.toggle("Select Checkbox If There Are Endorsements On This Spacecraft",False,key='endorsementcheck')
@@ -56,7 +55,7 @@ elif risktype == "In-Orbit":
     pass
   submitorbit = st.button("Submit",key='submitorbit')
   if submitorbit:
-    result = f"O{orbitInstallments}{endorsementMap[endorsementsCheck]} Payment 1: {date1.strftime('%m/%d/%Y')} @ {(percent1/100):.2%}"
+    result = f"O{orbitInstallments:02d}{endorsementMap[endorsementsCheck]} Payment 1: {date1.strftime('%m/%d/%Y')} @ {(percent1/100):.2%}"
     sumofpercentages = percent1
     for installment in range(orbitInstallments):
       if installment == 0:
