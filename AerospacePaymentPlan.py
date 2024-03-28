@@ -68,7 +68,7 @@ elif risktype == "In-Orbit":
         result += f", Payment {installment+1}: {date.strftime('%m/%d/%Y')} @ {percent/100:.2%}"
       if installment == orbitInstallments-1:
         result += f"{f'. END ${endorsementpremium:,.2f} Due {endorsementduedate}' if endorsementsCheck else '.'}"
-    if sumofpercentages == 100:
+    if round(sumofpercentages,2) == 100:
       st.divider()
       st.header(result)
     else:
