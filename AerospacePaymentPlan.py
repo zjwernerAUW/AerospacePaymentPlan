@@ -29,7 +29,7 @@ elif risktype == "Launch":
     if depositPercent == 0:
       result = f"L1{endorsementMap[endorsementsCheck]} 100% Due {totalDue} Days Before Launch." + f"{f' END ${endorsementpremium:.2f} Due {endorsementduedate}' if endorsementsCheck else ''}"
     else:
-      result = f"L2{endorsementMap[endorsementsCheck]} {(depositPercent/100):02.2%} Due on {depositdue.strftime('%m/%d/%Y')}. {(1-(depositPercent/100)):2.2%} Due {remainingDue:02d} Days Before Launch." + f"{f' END ${endorsementpremium:,.2f} Due {endorsementduedate}' if endorsementsCheck else ''}"
+      result = f"L2{endorsementMap[endorsementsCheck]} {(depositPercent/100):22.2%} Due on {depositdue.strftime('%m/%d/%Y')}. {(1-(depositPercent/100)):.2%} Due {remainingDue:02d} Days Before Launch." + f"{f' END ${endorsementpremium:,.2f} Due {endorsementduedate}' if endorsementsCheck else ''}"
     st.divider()
     st.header(result)
 elif risktype == "In-Orbit":
